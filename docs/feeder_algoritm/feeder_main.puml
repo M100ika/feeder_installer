@@ -1,0 +1,82 @@
+@startuml
+
+skinparam maxMessageSize 100
+skinparam actorBackgroundColor PaleGreen
+skinparam entityBackgroundColor Wheat
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam linetype polyline
+
+title Feeder algorithm vizualiztion
+
+actor FeedingProcess
+participant sensor
+control timeit
+entity weight
+participant rfid_reader
+control calibration
+control post_request
+
+sensor -> FeedingProcess : True
+weight -> FeedingProcess : connect()
+weight -> FeedingProcess : start_weight
+timeit -> FeedingProcess : start_time
+rfid_reader -> FeedingProcess : animal_id
+alt if animal_id == tare || animal_id == scale
+    FeedingProcess -> calibration : process_calibration(animal_id)
+    activate calibration
+    alt if animal_id == tare
+        calibration -> weight : set_offset()
+    else animal_id == scale
+        calibration -> weight : set_scale()
+    end
+    deactivate calibration
+end
+sensor -> FeedingProcess : True
+        loop while sensor True
+            timeit -> FeedingProcess : end_time
+            weight -> FeedingProcess : end_weight
+            alt if animal_id == null
+                rfid_reader -> FeedingProcess : animal_id
+            end
+
+            alt if animal_id == tare || animal_id == scale
+                FeedingProcess -> calibration : process_calibration(animal_id)
+                activate calibration
+                alt if animal_id == tare
+                    calibration -> weight : set_offset()
+                else 
+                    calibration -> weight : set_scale()
+                end
+                deactivate calibration
+                
+            end
+
+            FeedingProcess -> FeedingProcess : sleep(1)
+
+            alt sensor == False
+                sensor -> FeedingProcess : False
+                break
+            end
+        end
+end
+
+alt Calculate feed_time and final_weight
+    timeit -> FeedingProcess : event_time
+    FeedingProcess -> FeedingProcess : final_weight = end_weight - start_weight
+    FeedingProcess -> FeedingProcess : feed_time = end_time - start_time
+end
+
+alt if feed_time > 10 sec
+    FeedingProcess -> post_request : eventTime, feed_time, rfid_reader, final_weight, end_weight
+    activate post_request
+    post_request -> FeedingProcess : answer
+    deactivate post_request
+end
+
+FeedingProcess -> weight : disconnect()
+activate weight
+weight -> FeedingProcess
+deactivate weight
+
+@enduml

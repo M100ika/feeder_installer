@@ -9,13 +9,11 @@ from datetime import datetime
 from loguru import logger
 import sql_database as sql
 import _config as cfg
-import statistics
 import adc_data as ADC
 import time
 import requests
 import binascii
 import socket
-import sys
 import json
 import threading
 import queue
@@ -100,7 +98,7 @@ def _send_post(postData):
     #         sql.noInternet(postData)
 
 
-def __connect_rfid_reader():                                      # Connection to RFID Reader through TCP and getting cow ID in str format
+def __connect_rfid_reader_feeder(count = 1):                                      # Connection to RFID Reader through TCP and getting cow ID in str format
     try:    
         logger.info(f'Start connect RFID function')
         TCP_IP = '192.168.1.250'                                #chafon 5300 reader address
@@ -122,7 +120,9 @@ def __connect_rfid_reader():                                      # Connection t
             logger.info(f'After end: Animal ID: {animal_id}')
             s.close()             
         if animal_id_new == null_id: # Id null return(0)
-            __connect_rfid_reader()
+            if count < int(cfg.get_config("Parameters", "rfid_read_times")):
+                count += 1
+                __connect_rfid_reader_feeder(count)
         else: # Id checkt return(1)
             animal_id = "b'435400040001'"
 
@@ -138,7 +138,7 @@ def rfid_label():
         start_time = time.time()
         stop_time = start_time + sec
         while len(labels) < sec:
-            cow_id = __connect_rfid_reader()
+            cow_id = __connect_rfid_reader_feeder()
             labels.append(cow_id)
             if time.time() >= stop_time:
                 break
@@ -183,7 +183,6 @@ def input_with_timeout(message, timeout):   # Функция создания в
 #         return weight_new
 #     except ValueError as e:
 #         logger.error(f'Instant_weight function Error: {e}')
-
 
 
 def _calibrate_or_start():
@@ -243,6 +242,7 @@ def _rfid_scale_calib():
         measured_weight = (arduino.calib_read()-arduino.get_offset())
         scale = int(measured_weight)/int(cfg.get_setting("Calibration", "weight"))
         arduino.set_scale(scale)
+        cfg.update_setting("Calibration", "Scale", scale)
         logger.info(f'Calibration details\n\n —Scale factor: {scale}')
         arduino.disconnect()
         del arduino
@@ -260,6 +260,7 @@ def _rfid_offset_calib():
         arduino.connect()
         offset = arduino.calib_read()
         arduino.set_offset(offset)
+        cfg.update_setting("Calibration", "Offset", offset)
         logger.info(f'Calibration details\n\n —Offset: {offset}')
         arduino.disconnect()
         del arduino
@@ -267,7 +268,6 @@ def _rfid_offset_calib():
     except:
         logger.error(f'RFID taring process Failed')
         arduino.disconnect()
-
 
 
 def _first_weight(obj):
@@ -302,7 +302,7 @@ def feeder_module():
                 weight = _start_obj(port)
                 start_weight = _first_weight(weight)       
                 start_time = timeit.default_timer()      
-                animal_id = __connect_rfid_reader()      
+                animal_id = __connect_rfid_reader_feeder()      
 
                 logger.info(f'Start weight: {start_weight}')    
                 logger.info(f'Start time: {start_time}')
@@ -316,6 +316,8 @@ def feeder_module():
                     end_time = timeit.default_timer()       
                     end_weight = weight._get_measure()
                     logger.info(f'Feed weight: {end_weight}')
+                    if animal_id == cfg.get_config("Parameters", "null_rfid"):
+                        animal_id = __connect_rfid_reader_feeder()
                     time.sleep(1)
                     if _get_relay_state(int(relay_pin)) == False: # На всякий случай
                         break
@@ -332,7 +334,7 @@ def feeder_module():
                 logger.info(f'feed_time: {feed_time_rounded}')
 
                 eventTime = str(str(datetime.now()))
-                
+
                 if feed_time > 10: # Если корова стояла больше 10 секунд то отправляем данные
                     post_data = _post_request(eventTime, feed_time_rounded, animal_id, final_weight_rounded, end_weight)    #400
                     _send_post(post_data)
@@ -340,6 +342,7 @@ def feeder_module():
         except Exception as e:
             logger.error(f'Error: {e}')
             weight.disconnect()
+
 
 def process_calibration(animal_id):
     try:
@@ -350,17 +353,47 @@ def process_calibration(animal_id):
     except Exception as e:
         logger.error(f'Calibration with RFID: {e}')
 
+
 def process_feeding(weight):
     try:
+        relay_pin = cfg.get_setting("Relay", "sensor_pin")
         start_weight = _first_weight(weight)       
         start_time = timeit.default_timer()            
-        animal_id = __connect_rfid_reader()
+        animal_id = __connect_rfid_reader_feeder() # переписать
             
         logger.info(f'Start weight: {start_weight}')      
         logger.info(f'Start time: {start_time}')           
         logger.info(f'Animal ID: {animal_id}')
 
         process_calibration(animal_id, logger) 
+
+        while _get_relay_state(int(relay_pin)):
+            end_time = timeit.default_timer()       
+            end_weight = weight._get_measure()
+            logger.info(f'Feed weight: {end_weight}')
+            time.sleep(1)
+            if _get_relay_state(int(relay_pin)) == False: # На всякий случай
+                break
+            
+        logger.info(f'While ended.')
+
+        feed_time = end_time - start_time           
+        feed_time_rounded = round(feed_time, 2)
+        final_weight = start_weight - end_weight    
+        final_weight_rounded = round(final_weight, 2)
+
+        logger.info(f'Finall result')
+        logger.info(f'finall weight: {final_weight_rounded}')
+        logger.info(f'feed_time: {feed_time_rounded}')
+
+        eventTime = str(str(datetime.now()))
+
+        if feed_time > 10: # Если корова стояла больше 10 секунд то отправляем данные
+            post_data = _post_request(eventTime, feed_time_rounded, animal_id, final_weight_rounded, end_weight)    #400
+            _send_post(post_data)
+        weight.disconnect()
+
+
     except Exception as e:
         logger.error(f'Calibration with RFID: {e}')
 
@@ -370,10 +403,10 @@ def feeder_module_v2():
     relay_pin = cfg.get_setting("Relay", "sensor_pin")
     logger.debug("Feeder project.")
 
-    while True:  # Функция, определяющая, должен ли цикл продолжаться
+    while True:  
         try:        
             if _get_relay_state(int(relay_pin)):  
                 with create_connection(port) as weight:
                     process_feeding(weight, relay_pin, cfg, logger)
-        except SpecificException as e:  # Замените на конкретный тип исключения
+        except Exception as e: 
             logger.error(f'Error: {e}')
