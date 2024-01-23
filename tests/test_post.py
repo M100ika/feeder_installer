@@ -9,7 +9,7 @@ from loguru import logger
 import datetime
 
 
-type_scales = "Scales_10_test"
+type_scales = "Marat_10_test"
 
 logger.add('test_feeder.log', format="{time} {level} {message}", 
 level="DEBUG", rotation="1 day", compression="zip")  

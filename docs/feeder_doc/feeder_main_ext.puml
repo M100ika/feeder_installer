@@ -1,0 +1,87 @@
+@startuml
+skinparam maxMessageSize 100
+skinparam actorBackgroundColor PaleGreen
+skinparam entityBackgroundColor Wheat
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam linetype polyline
+
+title Feeder Algorithm Visualization
+
+actor FeedingProcess
+participant BeamSensor
+control timeit
+entity ArduinoWeightManager
+participant RFID_Reader
+control CalibrationManager
+control PostManager
+
+group Data Initialization
+BeamSensor -> FeedingProcess : Cow Appeared
+FeedingProcess -> ArduinoWeightManager : connect
+activate ArduinoWeightManager
+ArduinoWeightManager -> FeedingProcess
+deactivate ArduinoWeightManager
+ArduinoWeightManager -> FeedingProcess : start_weight
+timeit -> FeedingProcess : start_time
+RFID_Reader -> FeedingProcess : animal_id
+end group
+
+alt if animal_id == tare || animal_id == scale
+FeedingProcess -> CalibrationManager: calibration(animal_id)
+activate CalibrationManager
+alt if animal_id == tare
+CalibrationManager -> ArduinoWeightManager : set_offset()
+else animal_id == scale
+CalibrationManager -> ArduinoWeightManager : set_scale()
+deactivate CalibrationManager
+end
+end
+
+group Main Feeding Loop
+loop while Cow is Standing
+timeit -> FeedingProcess : end_time
+ArduinoWeightManager -> FeedingProcess : end_weight
+alt if animal_id == null
+RFID_Reader -> FeedingProcess : animal_id
+end
+
+    alt if animal_id == tare || animal_id == scale
+        FeedingProcess -> CalibrationManager : calibration(animal_id)
+        activate CalibrationManager
+        alt if animal_id == tare
+            CalibrationManager -> ArduinoWeightManager : set_offset()
+        else animal_id == scale
+            CalibrationManager -> ArduinoWeightManager : set_scale()
+            deactivate CalibrationManager
+        end
+    end
+
+    FeedingProcess -> FeedingProcess : sleep(1)
+
+    alt Cow Left
+        BeamSensor -> FeedingProcess : 
+        break
+    end
+end
+end group
+
+group Final Data Calculation
+timeit -> FeedingProcess : event_time
+FeedingProcess -> FeedingProcess : final_weight = end_weight - start_weight
+FeedingProcess -> FeedingProcess : feed_time = end_time - start_time
+end group
+
+alt if feed_time > 10 sec
+FeedingProcess -> PostManager** : eventTime, feed_time, RFID_Reader, final_weight, end_weight
+activate PostManager
+PostManager -> FeedingProcess : response
+deactivate PostManager
+end
+
+FeedingProcess -> ArduinoWeightManager : disconnect()
+activate ArduinoWeightManager
+ArduinoWeightManager -> FeedingProcess
+deactivate ArduinoWeightManager
+
+@enduml

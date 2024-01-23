@@ -31,6 +31,7 @@ def _get_relay_state(pin_number):
     # return relay_state == GPIO.HIGH
     return 1
 
+
 def _start_obj(port):
     try:
         obj = ADC.ArduinoSerial(port)
@@ -42,16 +43,12 @@ def _start_obj(port):
     except Exception as e:
         logger.error(f'Error connecting: {e}')
 
+
 def connect_arduino_to_get_dist(s):
-    s.flushInput() # Cleaning buffer of Serial Port
-    s.flushOutput() # Cleaning output buffer of Serial Port
+    s.flushInput() 
+    s.flushOutput() 
     distance = (str(s.readline()))
     distance = re.sub("b|'|\r|\n", "", distance[:-5])
-    #while (float(distance)) < 50:
-    #    distance = (str(s.readline()))
-    #    distance = re.sub("b|'|\r|\n", "", distance[:-5])
-    #    distance = float(distance)
-    #    return distance
     return distance
 
 
@@ -104,8 +101,6 @@ def __connect_rfid_reader_feeder(count = 1):                                    
         TCP_IP = '192.168.1.250'                                #chafon 5300 reader address
         TCP_PORT = 60000                                        #chafon 5300 port
         BUFFER_SIZE = 1024
-        animal_id = "b'435400040001'"                           # Id null starting variable
-        animal_id_new = "b'435400040001'"
         null_id = "b'435400040001'"
 
         if animal_id == null_id: # Send command to reader waiting id of animal
@@ -117,15 +112,13 @@ def __connect_rfid_reader_feeder(count = 1):                                    
             animal_id= str(binascii.hexlify(data))
             animal_id_new = animal_id[:-5] #Cutting the string from unnecessary information after 4 signs 
             animal_id_new = animal_id_new[-12:] #Cutting the string from unnecessary information before 24 signs
-            logger.info(f'After end: Animal ID: {animal_id}')
+            logger.info(f'Animal ID: {animal_id}')
             s.close()             
         if animal_id_new == null_id: # Id null return(0)
             if count < int(cfg.get_config("Parameters", "rfid_read_times")):
                 count += 1
                 __connect_rfid_reader_feeder(count)
-        else: # Id checkt return(1)
-            animal_id = "b'435400040001'"
-
+        else: 
             return animal_id_new
     except Exception as e:
         logger.error(f'Error connect RFID reader {e}')
@@ -175,16 +168,6 @@ def input_with_timeout(message, timeout):   # Функция создания в
     return None
 
 
-# def instant_weight(s):
-#     try:
-#         s.flushInput() 
-#         weight = (str(s.readline())) 
-#         weight_new = re.sub("b|'|\r|\n", "", weight[:-5])
-#         return weight_new
-#     except ValueError as e:
-#         logger.error(f'Instant_weight function Error: {e}')
-
-
 def _calibrate_or_start():
     try:
         logger.info(f'\nSelect an option:\n[1] Calibrate\n[2] Start Measurement')
@@ -193,9 +176,7 @@ def _calibrate_or_start():
         time.sleep(5)
 
         if choice == '1':
-            offset, scale = calibrate()
-            cfg.update_setting("Calibration", "Offset", offset)
-            cfg.update_setting("Calibration", "Scale", scale)
+            calibrate()
 
     except Exception as e:
         logger.error(f'Calibrate or start Error: {e}')
@@ -226,7 +207,6 @@ def calibrate():
         cfg.update_setting("Calibration", "Scale", scale)
         arduino.disconnect()
         del arduino
-        return offset, scale
     except:
         logger.error(f'calibration Fail')
         arduino.disconnect()
@@ -398,7 +378,7 @@ def process_feeding(weight):
         logger.error(f'Calibration with RFID: {e}')
 
 def feeder_module_v2():
-    _calibrate_or_start(cfg, logger)
+    _calibrate_or_start()
     port = cfg.get_setting("Parameters", "arduino_port")     
     relay_pin = cfg.get_setting("Relay", "sensor_pin")
     logger.debug("Feeder project.")
@@ -407,6 +387,6 @@ def feeder_module_v2():
         try:        
             if _get_relay_state(int(relay_pin)):  
                 with create_connection(port) as weight:
-                    process_feeding(weight, relay_pin, cfg, logger)
+                    process_feeding(weight)
         except Exception as e: 
             logger.error(f'Error: {e}')

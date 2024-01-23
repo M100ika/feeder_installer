@@ -65,7 +65,7 @@ def get_config(path):           # Получить доступ к конфиг 
         logger.error(f'Config.py, get_config func error {e}')
  
 
-def get_setting(section, setting):      # Поучить значение определенной переменной
+def get_setting(section, setting):      # Получить значение определенной переменной
     try:
         config = get_config(path)
         value = config.get(section, setting)
