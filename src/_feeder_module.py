@@ -4,11 +4,10 @@ Contact number +7 775 818 48 43. Email maxat.suieubayev@gmail.com"""
 
 #!/usr/bin/sudo python3
 
-from requests.exceptions import HTTPError
 from datetime import datetime
 from loguru import logger
 from _chafon_rfid_lib import RFIDReader
-import _sql_database as sql
+from _sql_database import SqlDatabase
 from _config_manager import ConfigManager
 import _adc_data as ADC
 import time
@@ -24,11 +23,20 @@ import timeit
 
 config_manager = ConfigManager()
 
+EQUIPMENT_TYPE = config_manager.get_setting("Parameters", "type")
+SERIAL_NUMBER = config_manager.get_setting("Parameters", "serial_number")
+
+URL = config_manager.get_setting("Parameters", "url")
+HEADERS = {'Content-type': 'application/json'}
+
 TCP_IP = '192.168.1.250'  # Chafon 5300 reader address
 TCP_PORT = 60000          # Chafon 5300 port
 BUFFER_SIZE = 1024
 
 ARDUINO_PORT = config_manager.get_setting("Parameters", "arduino_port")     
+CALIBRATION_TARING_RFID = config_manager.get_setting("Calibration", "taring_rfid")
+CALIBRATION_SCALE_RFID = config_manager.get_setting("Calibration", "scaling_rfid")
+CALIBRATION_WEIGHT = int(config_manager.get_setting("Calibration", "weight"))
 RELAY_PIN = int(config_manager.get_setting("Relay", "sensor_pin"))
 RFID_TIMEOUT = int(config_manager.get_setting("RFID_Reader", "reader_timeout"))
 
@@ -71,12 +79,12 @@ def _check_relay_state(check_count=10, threshold=5) -> bool:
         logger.error(f"_Check_relay_state function error: {e}")
 
 
-def initialize_arduino(port):
+def initialize_arduino():
     try:
-        arduino_object = ADC.ArduinoSerial(port)
+        arduino_object = ADC.ArduinoSerial(ARDUINO_PORT)
         arduino_object.connect()
         if arduino_object.isOpen():
-            logger.info(f'Connection established on port {port}')
+            logger.info(f'Connection established on port {ARDUINO_PORT}')
             try:
                 offset = float(config_manager.get_setting("Calibration", "offset"))
                 scale = float(config_manager.get_setting("Calibration", "scale"))
@@ -86,57 +94,52 @@ def initialize_arduino(port):
                 logger.error(f'Error setting calibration: {e}')
                 return None
         else:
-            logger.error(f'Failed to open connection on port {port}')
+            logger.error(f'Failed to open connection on port {ARDUINO_PORT}')
             return None
         
         return arduino_object
     
     except Exception as e:
-        logger.error(f'Error connecting to Arduino on port {port}: {e}')
+        logger.error(f'Error connecting to Arduino on port {ARDUINO_PORT}: {e}')
         return None
 
 
 def __post_request(event_time, feed_time, animal_id, end_weight, feed_weight) -> dict:
     try:
-        equipment_type = config_manager.get_setting("Parameters", "type")
-        serial_number = config_manager.get_setting("Parameters", "serial_number")
-        payload = {
+        return {
             "Eventdatetime": event_time,
-            "EquipmentType": equipment_type,
-            "SerialNumber": serial_number,
+            "EquipmentType": EQUIPMENT_TYPE,
+            "SerialNumber": SERIAL_NUMBER,
             "FeedingTime": feed_time,
             "RFIDNumber": animal_id,
             "WeightLambda": end_weight,
             "FeedWeight": feed_weight
         }
-        return payload
     except ValueError as v:
         logger.error(f'__Post_request function error: {v}')
 
 
 def check_internet():
     try:
-        mstr = "http://google.com"
-        res = requests.get(mstr)
-        if res.status_code == 200:
-            sql.internetOn()
-    except:
-        logger.error(f'No internet')
+        response = requests.get("http://google.com")
+        if response.status_code == 200:
+            logger.info('Internet is on. Trying to send saved data...')
+            database = SqlDatabase()
+            database.internet_on()
+    except Exception as e:
+        logger.error(f'No internet: {e}')
 
 
 def __send_post(postData):
-    url = config_manager.get_setting("Parameters", "url")
-    headers = {'Content-type': 'application/json'}
     try:
-        post = requests.post(url, data = json.dumps(postData), headers = headers, timeout=30)
+        post = requests.post(URL, data = json.dumps(postData), headers = HEADERS, timeout=30)
         logger.info(f'{post.status_code}')
-    except HTTPError as http_err:
-        logger.error(f'HTTP error occurred: {http_err}')
+        if post.status_code != 200:
+            raise Exception(f'Response status code: {post.status_code}')
     except Exception as err:
-        logger.error(f'Other error occurred: {err}')
-    # finally:
-    #     if type(post) != requests.models.Response:
-    #         sql.noInternet(postData)
+        logger.error(f'Error occurred: {err}')
+        database = SqlDatabase()
+        database.no_internet(postData)
 
 
 def __connect_rfid_reader_ethernet():
@@ -200,8 +203,7 @@ def _calibrate_or_start():
 def calibrate():
     try:
         logger.info(f'\033[1;33mStarting the calibration process.\033[0m')
-        port = config_manager.get_setting("Parameters", "arduino_port")
-        arduino = ADC.ArduinoSerial(port, 9600, timeout=1)
+        arduino = ADC.ArduinoSerial(ARDUINO_PORT, 9600, timeout=1)
         arduino.connect()
         logger.info(f"Ensure the scale is clear. Press any key once it's empty and you're ready to proceed.")
         time.sleep(1)
@@ -230,12 +232,11 @@ def calibrate():
 def _rfid_scale_calib():
     try:
         logger.info(f'\033[1;33mStarting the RFID scale calibration process.\033[0m')
-        logger.info(f'\033There should be {config_manager.get_setting("Calibration", "weight")} kg.\033[')
-        port = config_manager.get_setting("Parameters", "arduino_port")
-        arduino = ADC.ArduinoSerial(port, 9600, timeout=1)
+        logger.info(f'\033There should be {CALIBRATION_WEIGHT} kg.\033[')
+        arduino = ADC.ArduinoSerial(ARDUINO_PORT, 9600, timeout=1)
         arduino.connect()
         measured_weight = (arduino.calib_read()-arduino.get_offset())
-        scale = int(measured_weight)/int(config_manager.get_setting("Calibration", "weight"))
+        scale = int(measured_weight)/CALIBRATION_WEIGHT
         arduino.set_scale(scale)
         config_manager.update_setting("Calibration", "Scale", scale)
         logger.info(f'Calibration details\n\n —Scale factor: {scale}')
@@ -250,8 +251,7 @@ def _rfid_scale_calib():
 def _rfid_offset_calib():
     try:
         logger.info(f'\033[1;33mStarting the RFID taring process.\033[0m')
-        port = config_manager.get_setting("Parameters", "arduino_port")
-        arduino = ADC.ArduinoSerial(port, 9600, timeout=1)
+        arduino = ADC.ArduinoSerial(ARDUINO_PORT, 9600, timeout=1)
         arduino.connect()
         offset = arduino.calib_read()
         arduino.set_offset(offset)
@@ -276,12 +276,13 @@ def _first_weight(arduino_object):
 
 def __process_calibration(animal_id):
     try:
-        if animal_id == config_manager.get_setting("Calibration", "taring_rfid"):
+        if animal_id == CALIBRATION_TARING_RFID:
             _rfid_offset_calib()
-        elif animal_id == config_manager.get_setting("Calibration", "scaling_rfid"):
+        elif animal_id == CALIBRATION_SCALE_RFID:
             _rfid_scale_calib()        
     except Exception as e:
         logger.error(f'Calibration with RFID: {e}')
+
 
 def __animal_rfid():
     try:
@@ -291,7 +292,7 @@ def __animal_rfid():
         else:
             return __connect_rfid_reader_ethernet() 
     except Exception as e:
-        logger.error(f'take rfid error: {e}')
+        logger.error(f'RFID reader error: {e}')
 
 
 def _process_feeding(weight):
@@ -345,7 +346,7 @@ def feeder_module_v71():
     while True:  
         try:        
             if _check_relay_state():
-                weight = initialize_arduino(ARDUINO_PORT)
+                weight = initialize_arduino()
                 if weight is not None:
                     try:
                         _process_feeding(weight)
