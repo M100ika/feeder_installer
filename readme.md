@@ -74,22 +74,22 @@
 3. В случае если устройсво новое необходимо заполнить данные об этом устройсве пройдя по следующей ссылке
 https://docs.google.com/spreadsheets/d/1XeYxa0_bUGq_OvfEMQHy445ZObuPY38OtOF7z158Gro/edit#gid=0
 4. Заполните файл config.ini, пример в пункте 5
-5. Если устройство использовалось ранее возьмите необходимые данные из таблицы по ссылке выше и перенесите данные в файл config.ini. К примеру:
-
+5. Если устройство использовалось ранее возьмите необходимые данные из таблицы по ссылке выше и перенесите данные в файл config.ini. 
+    ```ini
     [Parameters]
-    model = pcf_fdr_71 <- Модель оборудования
-    type = Feeder <- Тип устройства, Feeder, Scales
-    serial_number = feeder0423v21-1  <- Здесь вводим данные из таблицы
+    model = pcf_fdr_71  # Модель оборудования
+    type = Feeder   # Тип устройства, Feeder, Scales
+    serial_number = feeder0423v21-1     # Здесь вводим данные из таблицы
     url = https://smart-farm.kz:8502/api/v2/RawFeedings
     median_url = http://194.4.56.86:8501/api/weights
     array_url = https://smart-farm.kz:8502/v2/OneTimeWeighings
-    arduino_port = /dev/ttyACM0 <- Порт ардуино. Проверить с помощью команды ls /dev/tty* . Варианты: ttyACM0, ttyUSB0 или ttyUSB1
-    debug = 1  <- Ставим 0 после проведения тестов. 0 - отключает логи кроме error. 
+    arduino_port = /dev/ttyACM0 # Порт ардуино. Проверить с помощью команды ls /dev/tty* . Варианты: ttyACM0, ttyUSB0 или ttyUSB1
+    debug = 1  # Ставим 0 после проведения тестов. 0 - отключает логи кроме error. 
 
     [Calibration]
-    taring_rfid =   <- RFID метка для автоматического тарирования. Изменить на нужный
-    scaling_rfid =  <- RFID метка для автоматической калибровки. Изменить на нужный
-    weight = 80     <- Эталонный вес для калибровки. Изменить на нужный
+    taring_rfid =   # RFID метка для автоматического тарирования. Изменить на нужный
+    scaling_rfid =  # RFID метка для автоматической калибровки. Изменить на нужный
+    weight = 80     # Эталонный вес для калибровки. Изменить на нужный
     offset = 16766507
     scale = -3358.285714285714
 
@@ -98,15 +98,15 @@ https://docs.google.com/spreadsheets/d/1XeYxa0_bUGq_OvfEMQHy445ZObuPY38OtOF7z158
     version = 7.1
 
     [Relay]
-    sensor_pin = 17  <- Пин на распберри для датчика прерывания луча
+    sensor_pin = 17  # Пин на распберри для датчика прерывания луча
 
     [RFID_Reader]
-    reader_usb = 0  <- Поставить 1 если считыватель RFID меток подключен через USB, 0 если через Ethernet
-    reader_port = /dev/ttyUSB0 <- Порт считывателя. Проверить с помощью команды ls /dev/tty* . Варианты: ttyACM0, ttyUSB0 или ttyUSB1
-    reader_power = 26 <- Мощность считывателя
-    reader_timeout = 2 <- Время выделяемое для поиска метки в секундах.
-    reader_buzzer = 1 <- 1- Включить/ 0- Отключить звук считывателя. 
-    
+    reader_usb = 0  # Поставить 1 если считыватель RFID меток подключен через USB, 0 если через Ethernet
+    reader_port = /dev/ttyUSB0 # Порт считывателя. Проверить с помощью команды ls /dev/tty* . Варианты: ttyACM0, ttyUSB0 или ttyUSB1
+    reader_power = 26 # Мощность считывателя
+    reader_timeout = 2 # Время выделяемое для поиска метки в секундах.
+    reader_buzzer = 1 # 1- Включить/ 0- Отключить звук считывателя. 
+    ```
 6. Запустите файл main_feeder.py
 7. ...
 
