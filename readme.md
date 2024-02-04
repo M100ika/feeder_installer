@@ -1,6 +1,7 @@
 # Проект: Feeder
 **Версия**: 7.1  
 **Автор**: Суйеубаев Максат Жамбылович
+
 **Email**: maxat.suieubayev@gmail.com  
 
 ## Введение
@@ -74,7 +75,6 @@
 https://docs.google.com/spreadsheets/d/1XeYxa0_bUGq_OvfEMQHy445ZObuPY38OtOF7z158Gro/edit#gid=0
 4. Заполните файл config.ini, пример в пункте 5
 5. Если устройство использовалось ранее возьмите необходимые данные из таблицы по ссылке выше и перенесите данные в файл config.ini. К примеру
-
     [Parameters]
     model = pcf_fdr_71 <- Модель оборудования
     type = Feeder <- Тип устройства, Feeder, Scales
@@ -105,7 +105,6 @@ https://docs.google.com/spreadsheets/d/1XeYxa0_bUGq_OvfEMQHy445ZObuPY38OtOF7z158
     reader_power = 26 <- Мощность считывателя
     reader_timeout = 2 <- Время выделяемое для поиска метки в секундах.
     reader_buzzer = 1 <- 1- Включить/ 0- Отключить звук считывателя. 
-
 6. Запустите файл main_feeder.py
 7. ...
 
