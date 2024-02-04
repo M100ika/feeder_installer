@@ -1,0 +1,54 @@
+@startuml
+
+start
+
+:Load RFID settings;
+partition "RFID Reading Process" {
+  :Determine USB connection;
+  if (RFID_READER_USB) then (yes)
+    :Initialize Serial Transport;
+    :Create Command Runner;
+    :Get Reader Type;
+    if (Reader Type is Valid) then (valid)
+      :Set Power;
+      :Set Buzzer;
+      :Start Reading Loop;
+      repeat 
+        :Write Inventory Command;
+        :Read Response Frame;
+        if (Response Frame Valid) then (valid)
+          :Extract Tag ID;
+          -> yes;
+        else (timeout)
+          :Log Timeout;
+          stop
+        endif
+      backward: More Frames?;
+      repeat while (Tag ID is None and\nNo Timeout)
+      :Close Transport;
+      :Process Tag ID;
+      :Return Final Tag ID;
+    else (invalid)
+      :Log Error;
+      stop
+    endif
+  else (no)
+    :Connect to RFID Reader Feeder;
+    :Send Command to Feeder;
+    repeat 
+      :Receive Data;
+      if (Data Received) then (yes)
+        :Extract Animal ID;
+        -> yes;
+      else (timeout)
+        :Log Timeout;
+      endif
+    repeat while (Attempt < 3)
+    :Return Animal ID or NULL_ID;
+  endif
+}
+
+:End Process;
+stop
+
+@enduml

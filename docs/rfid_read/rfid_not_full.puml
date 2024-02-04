@@ -1,0 +1,49 @@
+@startuml
+!theme plain
+
+actor User
+participant "Main Function" as Main
+participant "Configuration" as Config
+participant "RFID_Reader\nvia USB" as USBReader
+participant "RFID_Reader\nvia Ethernet" as FeederReader
+participant "Logger" as Logger
+participant "SerialTransport" as Transport
+participant "CommandRunner" as CmdRunner
+participant "Network Socket" as Socket
+participant "RFID Tag" as Tag
+
+User -> Main: Run application
+Main -> Config: Get RFID Reader settings
+
+alt if RFID_READER_USB is true
+    Main -> USBReader: __read_tag()
+    USBReader -> Transport: Initialize
+    Transport -> CmdRunner: Run commands
+    CmdRunner -> Transport: Send serialized command
+    Transport -> CmdRunner: Read and deserialize response
+    CmdRunner -> USBReader: Return result
+    USBReader -> Tag: Read RFID Tag
+    Tag -> USBReader: Return Tag ID
+else
+    Main -> FeederReader: __connect_rfid_reader_feeder()
+    FeederReader -> Socket: Connect
+    Socket -> FeederReader: Send command
+    loop 3 attempts
+        FeederReader -> Socket: Attempt to receive data
+        alt if timeout
+            Logger -> FeederReader: Log timeout
+        else
+            Socket -> FeederReader: Receive data
+            FeederReader -> Tag: Decode Tag ID
+            Tag -> FeederReader: Return Tag ID
+        end
+    end
+end
+
+alt if exception occurs
+    Main -> Logger: Log error
+end
+
+Main -> User: Return result (Tag ID or error)
+
+@enduml

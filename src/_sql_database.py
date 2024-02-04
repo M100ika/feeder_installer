@@ -5,13 +5,15 @@
 
 #!/usr/bin/sudo python3
 
-import feeder_module as fdr
-import _config as cfg
+import _feeder_module as fdr
+from _config_manager import ConfigManager
 import sqlite3
 import os
 from loguru import logger
 import requests
 import json
+
+config_manager = ConfigManager()
 
 def __tableCheck():                               # Функция для создания таблицы если ее не существует
     try:
@@ -42,10 +44,10 @@ def __countId():                                   # Введение счета
         sql = db.cursor()  
         path = 'config.ini'
         if not os.path.exists(path):
-            cfg.create_config()
-        dbid = int(cfg.get_setting("DbId", "id"))  # Забираем id
+            config_manager.create_config()
+        dbid = int(config_manager.get_setting("DbId", "id"))  # Забираем id
         dbid += 1                                  # Увеличиваем на 1
-        cfg.update_setting("DbId", "id", str(dbid))     # Записываем в конфиг новый id
+        config_manager.update_setting("DbId", "id", str(dbid))     # Записываем в конфиг новый id
         sql.close()
         return dbid
     except ValueError as e:
