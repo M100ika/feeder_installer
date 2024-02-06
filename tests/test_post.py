@@ -11,13 +11,13 @@ import datetime
 
 type_scales = "Marat_10_test"
 
-logger.add('test_feeder.log', format="{time} {level} {message}", 
+logger.add(format="{time} {level} {message}", 
 level="DEBUG", rotation="1 day", compression="zip")  
 
 def post_request():
     try:
-        feeder_type = "Feeder"
-        serial_number = 'feeder0423v21-1-test'
+        feeder_type = "TEST"
+        serial_number = 'TEST-1-test'
         payload = {
             "Eventdatetime": str(str(datetime.datetime.now())),
             "EquipmentType": feeder_type,
