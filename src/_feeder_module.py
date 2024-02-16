@@ -34,6 +34,7 @@ TCP_PORT = 60000          # Chafon 5300 port
 BUFFER_SIZE = 1024
 
 ARDUINO_PORT = config_manager.get_setting("Parameters", "arduino_port")     
+CALIBRATION_MODE = int(config_manager.get_setting("Calibration", "calibration_mode"))
 CALIBRATION_TARING_RFID = config_manager.get_setting("Calibration", "taring_rfid")
 CALIBRATION_SCALE_RFID = config_manager.get_setting("Calibration", "scaling_rfid")
 CALIBRATION_WEIGHT = int(config_manager.get_setting("Calibration", "weight"))
@@ -188,12 +189,12 @@ def input_with_timeout(message, timeout):   # Функция создания в
 
 def _calibrate_or_start():
     try:
-        logger.info(f'\nSelect an option:\n[1] Calibrate\n[2] Start Measurement')
-        choice = '2'
-        choice = input_with_timeout("Your choice (1/2):", 5)
-        time.sleep(5)
+        logger.info(f'\nTo calibrate the equipment, put a tick in the settings to calibration mode:\nActaul state is {"CALIBRATION_ON" if CALIBRATION_MODE else "CALIBRATION_OFF"}')
+        #logger.info(f'System pause 5 seconds')
+        #input_with_timeout("", 5)
+        #time.sleep(5)
 
-        if choice == '1':
+        if CALIBRATION_MODE:
             calibrate()
 
     except Exception as e:
@@ -341,21 +342,25 @@ def _process_feeding(weight):
 
 
 def feeder_module_v71():
-    _calibrate_or_start()
-    logger.debug(f"'\033[1;35mFeeder project version 7.1.\033[0m'")
-    while True:  
-        try:        
-            if _check_relay_state():
-                weight = initialize_arduino()
-                if weight is not None:
-                    try:
-                        _process_feeding(weight)
-                    finally:
-                        weight.disconnect()  
-                else:
-                    logger.error("Failed to initialize Arduino.")
-        except Exception as e: 
-            logger.error(f'Error: {e}')
+    try:
+        _calibrate_or_start()
+        logger.debug(f"'\033[1;35mFeeder project version 7.1.\033[0m'")
+        time.sleep(1)
+        while True:  
+            try:        
+                if _check_relay_state():
+                    weight = initialize_arduino()
+                    if weight is not None:
+                        try:
+                            _process_feeding(weight)
+                        finally:
+                            weight.disconnect()  
+                    else:
+                        logger.error("Failed to initialize Arduino.")
+            except Exception as e: 
+                logger.error(f'Error: {e}')
+    finally:
+        config_manager.update_setting("Calibration", "calibration_mode", 0)         
 
 
 def feeder_module_v61():

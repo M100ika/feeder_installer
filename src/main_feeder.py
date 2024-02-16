@@ -9,7 +9,7 @@ from _headers import install_packages
 requirement_list = ['loguru', 'requests', 'numpy', 'RPi.GPIO', 'wabson.chafon-rfid', 'pyserial']
 install_packages(requirement_list)
 
-from ._feeder_module import feeder_module_v71
+from _feeder_module import feeder_module_v71
 from loguru import logger
 from _config_manager import ConfigManager
 import os
@@ -34,8 +34,10 @@ if not os.path.exists("../config/config.ini"):
        
 @logger.catch
 def main():
-    feeder_module_v71()
-
+    try:
+        feeder_module_v71()
+    except Exception as e: 
+        logger.error(f'Error: {e}')
 main()
 
 
