@@ -35,6 +35,7 @@ if not os.path.exists("../config/config.ini"):
 @logger.catch
 def main():
     try:
+        print("Checking")
         feeder_module_v71()
     except Exception as e: 
         logger.error(f'Error: {e}')

@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import sys
 from pathlib import Path
+import logging
 import subprocess
 from tkinter import simpledialog
 
@@ -10,16 +11,45 @@ sys.path.append(str(Path(__file__).parent.parent / 'src'))
 from _config_manager import ConfigManager 
 
 
+class TextRedirector(object):
+    def __init__(self, widget):
+        self.widget = widget
+
+    def write(self, str):
+        self.widget.config(state='normal')
+        self.widget.insert(tk.END, str)
+        self.widget.see(tk.END)
+        self.widget.config(state='disabled')
+
+    def flush(self):
+        pass
+
+
+class TextHandler(logging.Handler):
+    def __init__(self, text_widget):
+        super().__init__()
+        self.text_widget = text_widget
+        self.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
+
+    def emit(self, record):
+        msg = self.format(record)
+        self.text_widget.config(state='normal')
+        self.text_widget.insert(tk.END, msg + '\n')
+        self.text_widget.see(tk.END)
+        self.text_widget.config(state='disabled')
+
+
 class ConfigGUI:
     def __init__(self, root):
         self.root = root
+        self.stop_service('feeder.service')
         self.root.title("Конфигуратор оборудования")
         self.config_manager = ConfigManager("../config/config.ini")
         self.create_style() 
         self.user_level = tk.StringVar(value="user")
         self.draw_gui()
         self.disable_editing()
-
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     def create_style(self):
         self.style = ttk.Style()
@@ -31,6 +61,9 @@ class ConfigGUI:
         self.style.configure('TLabelframe.Label', font=('Arial', 12, 'bold'), padding=5)
         self.style.theme_use('classic')
 
+    def on_closing(self):
+        self.start_service('feeder.service')
+        self.root.destroy()
 
     def save_changes(self):
         for section, entries in self.entries.items():
@@ -43,6 +76,19 @@ class ConfigGUI:
                 
                 self.config_manager.update_setting(section, setting, str(value))
         messagebox.showinfo("Сохранение", "Настройки сохранены успешно!")
+        if self.user_level.get() == "admin":
+            if hasattr(self, 'terminal_window') and self.terminal_window.winfo_exists():
+                original_stdout = sys.stdout 
+                sys.stdout = TextRedirector(self.terminal_output)  
+                try:
+                    # Теперь вызываем функцию main, и ее вывод будет перенаправлен
+                    sys.path.append(str(Path(__file__).parent.parent / 'src'))
+                    from main_feeder import main
+                    main()
+                except Exception as e:
+                    messagebox.showerror("Ошибка", f"Не удалось запустить скрипт: {e}")
+                finally:
+                    sys.stdout = original_stdout 
 
         # sudo_password = simpledialog.askstring("Пароль sudo", "Введите пароль sudo:", show='*')
         # if sudo_password is not None:
@@ -56,13 +102,55 @@ class ConfigGUI:
         # else:
         #     messagebox.showinfo("Отмена", "Операция отменена пользователем.")
 
-        try:
-            # subprocess.run(['sudo', 'systemctl', 'restart', 'feeder.service'], check=True)
-            messagebox.showinfo("Перезапуск сервиса", "Сервис успешно перезапущен!")
-        except subprocess.CalledProcessError as e:
-            messagebox.showerror("Ошибка", f"Не удалось перезапустить сервис: {e}")
+        # try:
+        #     # subprocess.run(['sudo', 'systemctl', 'restart', 'feeder.service'], check=True)
+        #     messagebox.showinfo("Перезапуск сервиса", "Сервис успешно перезапущен!")
+        # except subprocess.CalledProcessError as e:
+        #     messagebox.showerror("Ошибка", f"Не удалось перезапустить сервис: {e}")
             # /etc/sudoers
             # yourusername ALL=(ALL) NOPASSWD: /bin/systemctl restart feeder.service
+
+
+    def create_terminal_output_window(self):
+
+        self.terminal_window = tk.Toplevel(self.root)
+        self.terminal_window.title("Вывод терминала")
+
+        self.terminal_output = tk.Text(self.terminal_window, height=20, width=80)
+        self.terminal_output.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+        scrollb = tk.Scrollbar(self.terminal_window, command=self.terminal_output.yview)
+        scrollb.pack(side=tk.RIGHT, fill=tk.Y)
+        self.terminal_output['yscrollcommand'] = scrollb.set
+
+        self.terminal_output.config(state='disabled')
+
+
+    def some_action_requiring_terminal_output(self):
+        self.create_terminal_output_window()
+        log_handler = TextHandler(self.terminal_output)
+        logging.getLogger().addHandler(log_handler)
+        logging.getLogger().setLevel(logging.DEBUG)  # Установите уровень логирования по необходимости
+        try:
+            print("Это сообщение будет показано в окне терминала.")
+        finally:
+            logging.getLogger().removeHandler(log_handler)
+
+    def service_exists(self, service_name):
+        try:
+            subprocess.check_call(['systemctl', 'status', service_name], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
+    def stop_service(self, service_name):
+        if self.service_exists(service_name):
+            subprocess.run(['sudo', 'systemctl', 'stop', service_name], check=True)
+
+    def start_service(self, service_name):
+        if self.service_exists(service_name):
+            subprocess.run(['sudo', 'systemctl', 'start', service_name], check=True)
+
 
     def draw_gui(self):
         self.notebook = ttk.Notebook(self.root)
@@ -153,6 +241,7 @@ class ConfigGUI:
             entered_password = simpledialog.askstring("Пароль", "Введите пароль технического специалиста:", show='*')
             if entered_password is not None and self.check_password(entered_password):
                 self.enable_editing()
+                self.some_action_requiring_terminal_output()
             else:
                 messagebox.showwarning("Ошибка", "Неверный пароль!")
                 self.user_level.set("user")

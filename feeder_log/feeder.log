@@ -1,234 +1,213 @@
-2024-02-14T16:20:40.376734+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:20:50.383528+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T16:20:50.384322+0600 ERROR calibration Fail
-2024-02-14T16:20:50.388437+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T16:20:50.388961+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T16:20:50.790312+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:50.791057+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:51.192784+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:51.193540+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:51.595224+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:51.596023+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:51.997744+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:51.998497+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:52.400293+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:52.401050+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:52.802793+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:52.803584+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:53.205327+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:53.206077+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:53.607772+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:53.608527+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:54.010225+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:54.010990+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:54.412761+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:20:54.413519+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:20:58.273525+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:21:08.279406+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T16:21:08.280589+0600 ERROR calibration Fail
-2024-02-14T16:21:08.281472+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T16:21:08.281972+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T16:21:08.683413+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:21:08.684153+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:21:09.085762+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:21:09.086491+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:21:09.488086+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:21:09.488844+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:21:09.890502+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:21:09.891320+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:21:10.292988+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:21:10.293776+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:21:10.695526+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:21:10.696259+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:21:59.143895+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:22:09.149987+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T16:22:09.151182+0600 ERROR calibration Fail
-2024-02-14T16:22:09.152081+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T16:22:09.152587+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T16:22:09.554129+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:22:09.554821+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:22:09.957820+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:22:09.958574+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:22:10.361699+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:22:10.362495+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:22:12.529466+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:23:43.589700+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:23:53.595422+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T16:23:53.596545+0600 ERROR calibration Fail
-2024-02-14T16:23:53.597402+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T16:23:53.597896+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T16:23:55.000432+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:23:55.001108+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:23:55.402686+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:23:55.403476+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:27:12.137254+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:27:14.268146+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:27:40.990731+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:27:49.775922+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:28:44.856538+0600 INFO 
+2024-02-17T01:25:55.731151+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T16:28:48.115517+0600 INFO 
+2024-02-17T01:25:55.733879+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:25:57.136402+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:57.142319+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:57.543867+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:57.544314+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:57.945779+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:57.946592+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:58.348327+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:58.349185+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:58.750996+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:58.751827+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:59.153398+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:59.154271+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:59.555862+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:59.556481+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:25:59.957969+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:25:59.958816+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:00.360351+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:00.361190+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:00.762848+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:00.763179+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:01.164551+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:01.165362+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:08.468648+0600 INFO Requirements already satisfied (info).
+2024-02-17T01:26:08.480144+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T16:29:10.755545+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T16:31:14.225228+0600 INFO 
+2024-02-17T01:26:08.480144+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T16:32:50.588494+0600 INFO 
+2024-02-17T01:26:08.480670+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:26:08.480670+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:26:09.882822+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:09.882822+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:09.884203+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:09.884203+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:10.286204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:10.286204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:10.287245+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:10.287245+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:10.689133+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:10.689133+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:10.690219+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:10.690219+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:11.091999+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:11.091999+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:26:11.092899+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:26:11.092899+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:51.719266+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T16:32:50.588709+0600 INFO System pause 5 seconds
-2024-02-14T16:34:26.681109+0600 INFO 
+2024-02-17T01:36:51.719622+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:36:53.121932+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:53.123135+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:53.524877+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:53.525691+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:53.927437+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:53.928192+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:54.329836+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:54.330582+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:54.732216+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:54.733200+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:55.134770+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:55.135699+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:55.537388+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:55.538261+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:55.939715+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:55.940485+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:36:56.342149+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:36:56.342856+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:40:57.079765+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T16:34:26.681339+0600 INFO System pause 5 seconds
-2024-02-14T16:34:31.683303+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T16:34:31.684128+0600 ERROR calibration Fail
-2024-02-14T16:34:31.685042+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T16:34:31.685549+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T16:34:33.088244+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:33.089070+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:33.490869+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:33.491665+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:33.893368+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:33.894112+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:34.295830+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:34.296570+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:34.698289+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:34.699043+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:35.100823+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:35.101570+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:35.503326+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:35.504147+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:35.905927+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:35.906736+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:36.308444+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:36.309208+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:36.710896+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:36.711751+0600 ERROR Failed to initialize Arduino.
-2024-02-14T16:34:37.113526+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T16:34:37.114477+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:04:44.510023+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T17:04:44.510243+0600 INFO System pause 5 seconds
-2024-02-14T17:04:49.515523+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T17:04:49.516373+0600 ERROR calibration Fail
-2024-02-14T17:04:49.517480+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T17:04:49.518045+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:05:18.546228+0600 INFO 
+2024-02-17T01:40:57.080117+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:40:58.482787+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:40:58.484322+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:40:58.886233+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:40:58.887166+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:40:59.288831+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:40:59.289149+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:40:59.690175+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:40:59.690665+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:41:00.092204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:41:00.093131+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:41:00.495104+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:41:00.496038+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:41:00.898113+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:41:00.898908+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:41:01.300338+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:41:01.300647+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:41:01.701887+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:41:01.702691+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:41:02.104538+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:41:02.105188+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:42:23.506391+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:05:18.546492+0600 INFO System pause 5 seconds
-2024-02-14T17:05:23.551795+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:05:24.954829+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:05:24.956029+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:05:25.357741+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:05:25.358501+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:05:34.022188+0600 INFO 
+2024-02-17T01:42:23.506758+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:42:24.909099+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:42:24.910527+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:42:25.312168+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:42:25.312967+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:42:25.714738+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:42:25.715552+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:42:26.117400+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:42:26.118287+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:18.683355+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:05:34.022420+0600 INFO System pause 5 seconds
-2024-02-14T17:05:39.027721+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T17:05:39.028667+0600 ERROR calibration Fail
-2024-02-14T17:05:39.029828+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T17:05:39.030636+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:06:25.626431+0600 INFO 
+2024-02-17T01:45:18.683743+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:45:20.086437+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:20.087633+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:20.489412+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:20.490197+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:20.891823+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:20.892546+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:21.294187+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:21.294908+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:21.696712+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:21.697447+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:22.099084+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:22.099441+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:22.500553+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:22.501170+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:45:22.902506+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:45:22.903371+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:46:18.368345+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:06:25.626688+0600 INFO System pause 5 seconds
-2024-02-14T17:06:30.627282+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:06:32.030215+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:06:32.031411+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:06:32.433133+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:06:32.433890+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:06:32.835599+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:06:32.836369+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:06:40.854474+0600 INFO 
+2024-02-17T01:46:18.368598+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:46:19.770674+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:46:19.771877+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:46:20.173441+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:46:20.174103+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:50:37.809457+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:06:40.854748+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:06:42.257293+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:06:42.258431+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:07:21.988891+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_ON
-2024-02-14T17:07:21.989130+0600 INFO [1;33mStarting the calibration process.[0m
-2024-02-14T17:07:21.989322+0600 ERROR calibration Fail
-2024-02-14T17:07:21.989739+0600 ERROR Calibrate or start Error: 'NoneType' object has no attribute 'close'
-2024-02-14T17:07:21.989956+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:07:23.392262+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:07:23.392481+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:07:23.793770+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:07:23.794530+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:07:24.196156+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:07:24.196930+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:07:26.571627+0600 INFO 
+2024-02-17T01:50:37.810047+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:50:39.212512+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:50:39.213809+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:50:39.615439+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:50:39.615744+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:50:40.016773+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:50:40.017702+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:11.698256+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:07:26.571858+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:07:27.974321+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:07:27.974845+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:07:28.376221+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:07:28.376923+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:09:03.977028+0600 INFO 
+2024-02-17T01:53:11.698658+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:53:13.101059+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:13.102511+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:13.504367+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:13.505234+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:13.906925+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:13.907857+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:14.309762+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:14.310079+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:14.711409+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:14.712303+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:15.114153+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:15.114987+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:15.516377+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:15.516775+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:15.917944+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:15.918756+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:16.320418+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:16.321171+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:16.722708+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:16.723353+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:17.124648+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:17.125097+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:17.526383+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:17.527204+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:17.929031+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:17.930052+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:18.332135+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:18.332963+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:18.734417+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:18.734921+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:19.136162+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:19.136599+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:53:19.537915+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:53:19.538723+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:54:13.324440+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:09:03.977261+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:09:08.922462+0600 INFO 
+2024-02-17T01:54:13.324942+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:54:55.760378+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:09:08.922747+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:09:10.325362+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:09:10.326589+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:09:10.728351+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:09:10.728563+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:09:29.201253+0600 INFO 
+2024-02-17T01:54:55.760730+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:54:57.162597+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:54:57.163102+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:54:57.564515+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:54:57.565328+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:57:09.070329+0600 INFO 
 To calibrate the equipment, put a tick in the settings to calibration mode:
 Actaul state is CALIBRATION_OFF
-2024-02-14T17:09:29.201476+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:09:30.603704+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:09:30.604100+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:09:31.005414+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:09:31.006233+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:09:31.407852+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:09:31.408652+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:10:03.970013+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_OFF
-2024-02-14T17:10:03.970246+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:10:11.569441+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_OFF
-2024-02-14T17:10:11.569682+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:10:12.971989+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-14T17:10:12.973166+0600 ERROR Failed to initialize Arduino.
-2024-02-14T17:10:14.897527+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_OFF
-2024-02-14T17:10:14.897755+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
-2024-02-14T17:11:13.974077+0600 INFO 
-To calibrate the equipment, put a tick in the settings to calibration mode:
-Actaul state is CALIBRATION_OFF
-2024-02-14T17:11:13.974297+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:57:09.070769+0600 DEBUG '[1;35mFeeder project version 7.1.[0m'
+2024-02-17T01:57:10.473408+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:57:10.474826+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:57:10.876643+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:57:10.877490+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:57:11.279180+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:57:11.279494+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:57:11.680851+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:57:11.681890+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:57:12.084015+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:57:12.084820+0600 ERROR Failed to initialize Arduino.
+2024-02-17T01:57:12.486333+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-17T01:57:12.486621+0600 ERROR Failed to initialize Arduino.
