@@ -20,31 +20,15 @@ import queue
 import time
 #import RPi.GPIO as GPIO
 import timeit
+import serial
+import time
+from serial.tools import list_ports
+from _glb_val import *
 
 config_manager = ConfigManager()
 
-EQUIPMENT_TYPE = config_manager.get_setting("Parameters", "type")
-SERIAL_NUMBER = config_manager.get_setting("Parameters", "serial_number")
 
-URL = config_manager.get_setting("Parameters", "url")
-HEADERS = {'Content-type': 'application/json'}
-
-TCP_IP = '192.168.1.250'  # Chafon 5300 reader address
-TCP_PORT = 60000          # Chafon 5300 port
-BUFFER_SIZE = 1024
-
-ARDUINO_PORT = config_manager.get_setting("Parameters", "arduino_port")     
-CALIBRATION_MODE = int(config_manager.get_setting("Calibration", "calibration_mode"))
-CALIBRATION_TARING_RFID = config_manager.get_setting("Calibration", "taring_rfid")
-CALIBRATION_SCALE_RFID = config_manager.get_setting("Calibration", "scaling_rfid")
-CALIBRATION_WEIGHT = int(config_manager.get_setting("Calibration", "weight"))
-RELAY_PIN = int(config_manager.get_setting("Relay", "sensor_pin"))
-RFID_TIMEOUT = int(config_manager.get_setting("RFID_Reader", "reader_timeout"))
-
-RFID_READER_USB = int(config_manager.get_setting("RFID_Reader", "reader_usb"))
-
-
-def _get_relay_state():
+def _get_relay_state() -> bool:
     # GPIO.setmode(GPIO.BCM)
     # GPIO.setup(RELAY_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     # relay_state = GPIO.input(RELAY_PIN)
@@ -54,18 +38,6 @@ def _get_relay_state():
 
 
 def _check_relay_state(check_count=10, threshold=5) -> bool:
-    """
-    Проверяет состояние реле определенное количество раз и выполняет действие,
-    если реле находится в состоянии HIGH достаточное количество раз.
-
-    Args:
-    pin_number (int): Номер пина, к которому подключено реле.
-    check_count (int): Количество проверок состояния реле.
-    threshold (int): Пороговое значение для количества раз, когда реле должно быть в состоянии HIGH.
-
-    Returns:
-    bool: True, если реле было в состоянии HIGH достаточное количество раз, иначе False.
-    """
     try:
         high_count = 0
         for _ in range(check_count):
@@ -143,12 +115,32 @@ def __send_post(postData):
         database.no_internet(postData)
 
 
+def _set_power_RFID_ethernet():
+    try:
+        logger.info(f"Start configure antenna power")
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((TCP_IP, TCP_PORT))
+        s.send(bytearray(RFID_READER_POWER))
+        data = s.recv(BUFFER_SIZE)
+        recieved_data = str(binascii.hexlify(data))
+        check_code = "b'4354000400210143'"
+        if recieved_data == check_code:
+            logger.info(f"operation succeeded")
+        else: 
+            logger.info(f"Denied!")
+    except Exception as e:
+        logger.error(f"_set_power_RFID_ethernet: An error occurred: {e}")
+    finally:
+        s.close()     
+
+
 def __connect_rfid_reader_ethernet():
     try:    
         logger.info('Start connect RFID function')
+        _set_power_RFID_ethernet()
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((TCP_IP, TCP_PORT))
-            s.send(bytearray([0x53, 0x57, 0x00, 0x06, 0xff, 0x01, 0x00, 0x00, 0x00, 0x50])) # Chafon RU5300 Answer mode reading mode command
+            s.send(bytearray([0x53, 0x57, 0x00, 0x06, 0xff, 0x01, 0x00, 0x00, 0x00, 0x50])) 
             s.settimeout(RFID_TIMEOUT)
             for attempt in range(1, 4):
                 try:
@@ -335,14 +327,17 @@ def _process_feeding(weight):
         if feed_time > 10: 
             post_data = __post_request(eventTime, feed_time_rounded, animal_id, final_weight_rounded, end_weight)
             __send_post(post_data)
-        weight.disconnect()
 
     except Exception as e:
         logger.error(f'Calibration with RFID: {e}')
+    
+    finally:
+        weight.disconnect()
 
 
 def feeder_module_v71():
     try:
+        # find_arduino()
         _calibrate_or_start()
         logger.debug(f"'\033[1;35mFeeder project version 7.1.\033[0m'")
         time.sleep(1)

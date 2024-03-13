@@ -1,160 +1,28 @@
-2024-02-17T01:25:57.136402+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:57.142319+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:57.543867+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:57.544314+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:57.945779+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:57.946592+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:58.348327+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:58.349185+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:58.750996+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:58.751827+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:59.153398+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:59.154271+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:59.555862+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:59.556481+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:25:59.957969+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:25:59.958816+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:00.360351+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:00.361190+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:00.762848+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:00.763179+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:01.164551+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:01.165362+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:09.882822+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:09.882822+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:09.884203+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:09.884203+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:10.286204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:10.286204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:10.287245+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:10.287245+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:10.689133+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:10.689133+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:10.690219+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:10.690219+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:11.091999+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:11.091999+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:26:11.092899+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:26:11.092899+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:53.121932+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:53.123135+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:53.524877+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:53.525691+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:53.927437+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:53.928192+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:54.329836+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:54.330582+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:54.732216+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:54.733200+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:55.134770+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:55.135699+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:55.537388+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:55.538261+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:55.939715+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:55.940485+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:36:56.342149+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:36:56.342856+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:40:58.482787+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:40:58.484322+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:40:58.886233+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:40:58.887166+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:40:59.288831+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:40:59.289149+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:40:59.690175+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:40:59.690665+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:41:00.092204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:41:00.093131+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:41:00.495104+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:41:00.496038+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:41:00.898113+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:41:00.898908+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:41:01.300338+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:41:01.300647+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:41:01.701887+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:41:01.702691+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:41:02.104538+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:41:02.105188+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:42:24.909099+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:42:24.910527+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:42:25.312168+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:42:25.312967+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:42:25.714738+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:42:25.715552+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:42:26.117400+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:42:26.118287+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:20.086437+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:20.087633+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:20.489412+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:20.490197+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:20.891823+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:20.892546+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:21.294187+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:21.294908+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:21.696712+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:21.697447+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:22.099084+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:22.099441+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:22.500553+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:22.501170+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:45:22.902506+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:45:22.903371+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:46:19.770674+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:46:19.771877+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:46:20.173441+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:46:20.174103+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:50:39.212512+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:50:39.213809+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:50:39.615439+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:50:39.615744+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:50:40.016773+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:50:40.017702+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:13.101059+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:13.102511+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:13.504367+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:13.505234+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:13.906925+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:13.907857+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:14.309762+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:14.310079+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:14.711409+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:14.712303+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:15.114153+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:15.114987+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:15.516377+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:15.516775+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:15.917944+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:15.918756+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:16.320418+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:16.321171+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:16.722708+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:16.723353+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:17.124648+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:17.125097+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:17.526383+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:17.527204+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:17.929031+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:17.930052+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:18.332135+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:18.332963+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:18.734417+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:18.734921+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:19.136162+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:19.136599+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:53:19.537915+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:53:19.538723+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:54:57.162597+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:54:57.163102+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:54:57.564515+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:54:57.565328+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:57:10.473408+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:57:10.474826+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:57:10.876643+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:57:10.877490+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:57:11.279180+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:57:11.279494+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:57:11.680851+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:57:11.681890+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:57:12.084015+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:57:12.084820+0600 ERROR Failed to initialize Arduino.
-2024-02-17T01:57:12.486333+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
-2024-02-17T01:57:12.486621+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:03.735873+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:03.743358+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:04.145089+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:04.145856+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:04.547627+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:04.548402+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:04.950212+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:04.950983+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:05.352694+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:05.353471+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:05.755204+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:05.755969+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:06.157398+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:06.158013+0600 ERROR Failed to initialize Arduino.
+2024-02-21T20:00:06.559485+0600 ERROR Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-21T20:00:06.560268+0600 ERROR Failed to initialize Arduino.
+2024-02-22T00:55:56.750273+0600 ERROR _feeder_module.py:93 Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-22T00:55:56.751484+0600 ERROR _feeder_module.py:371 Failed to initialize Arduino.
+2024-02-22T00:55:57.153313+0600 ERROR _feeder_module.py:93 Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-22T00:55:57.154060+0600 ERROR _feeder_module.py:371 Failed to initialize Arduino.
+2024-02-22T00:55:57.555761+0600 ERROR _feeder_module.py:93 Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-22T00:55:57.556509+0600 ERROR _feeder_module.py:371 Failed to initialize Arduino.
+2024-02-22T00:55:57.958303+0600 ERROR _feeder_module.py:93 Error connecting to Arduino on port /dev/ttyACM0: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+2024-02-22T00:55:57.959089+0600 ERROR _feeder_module.py:371 Failed to initialize Arduino.
+2024-02-22T01:41:23.407480+0600 ERROR _feeder_module.py:76 Error connecting to Arduino on port /dev/ttyUSB0: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-02-22T01:41:23.408748+0600 ERROR _feeder_module.py:354 Failed to initialize Arduino.
+2024-02-22T01:41:23.810613+0600 ERROR _feeder_module.py:76 Error connecting to Arduino on port /dev/ttyUSB0: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-02-22T01:41:23.811411+0600 ERROR _feeder_module.py:354 Failed to initialize Arduino.

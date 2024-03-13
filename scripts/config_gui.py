@@ -2,41 +2,18 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import sys
 from pathlib import Path
-import logging
+import serial
+from loguru import logger
+from serial.tools import list_ports
 import subprocess
+import time
 from tkinter import simpledialog
+from functools import partial
 
 sys.path.append(str(Path(__file__).parent.parent / 'src'))
 
 from _config_manager import ConfigManager 
-
-
-class TextRedirector(object):
-    def __init__(self, widget):
-        self.widget = widget
-
-    def write(self, str):
-        self.widget.config(state='normal')
-        self.widget.insert(tk.END, str)
-        self.widget.see(tk.END)
-        self.widget.config(state='disabled')
-
-    def flush(self):
-        pass
-
-
-class TextHandler(logging.Handler):
-    def __init__(self, text_widget):
-        super().__init__()
-        self.text_widget = text_widget
-        self.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
-
-    def emit(self, record):
-        msg = self.format(record)
-        self.text_widget.config(state='normal')
-        self.text_widget.insert(tk.END, msg + '\n')
-        self.text_widget.see(tk.END)
-        self.text_widget.config(state='disabled')
+from _chafon_rfid_lib import RFIDReader
 
 
 class ConfigGUI:
@@ -44,6 +21,8 @@ class ConfigGUI:
         self.root = root
         self.stop_service('feeder.service')
         self.root.title("Конфигуратор оборудования")
+        self.arduino_find_button = None
+        self.rfid_find_button = None
         self.config_manager = ConfigManager("../config/config.ini")
         self.create_style() 
         self.user_level = tk.StringVar(value="user")
@@ -51,19 +30,54 @@ class ConfigGUI:
         self.disable_editing()
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
+
     def create_style(self):
         self.style = ttk.Style()
-        self.style.configure('TLabel', font=('Arial', 10), padding=5)
+        self.style.configure('TLabel', font=('Arial', 11), padding=5)
         self.style.configure('TCheckbutton', font=('Arial', 10), padding=5)
         self.style.configure('TButton', font=('Arial', 10, 'bold'), padding=5)
         self.style.configure('TEntry', font=('Arial', 10), padding=5)
         self.style.configure('TLabelframe', font=('Arial', 12, 'bold'), padding=10)
         self.style.configure('TLabelframe.Label', font=('Arial', 12, 'bold'), padding=5)
-        self.style.theme_use('classic')
+        self.style.theme_use('default')
+
 
     def on_closing(self):
         self.start_service('feeder.service')
         self.root.destroy()
+
+
+    def run_in_terminal(self):
+        script_path = Path(__file__).parent.parent / 'src' / 'main_feeder.py'
+        cmd = f'xterm -geometry 155x30 -bg black -fg white -fa \'Monospace\' -fs 12 -title "Feeder test terminal" -e python3 {script_path}'
+        subprocess.run(cmd, shell=True, check=True)
+
+
+    def draw_tests_tab(self):
+        self.tests_frame = ttk.Frame(self.notebook)
+        self.notebook.add(self.tests_frame, text='Тесты')
+        test_files = [
+            ("relay_test.py", "Тест реле"),
+            ("rfid_ethernet_test.py", "Тест RFID по Ethernet"),
+            ("rfid_usb_test_2.py", "Тест RFID по USB"),
+            ("test_post.py", "Тестирование отправки данных на сервер"),
+            ("weight_measure_test.py", "Тест весов")
+        ]
+
+        for test_file, name in test_files:
+            relay_test_button = ttk.Button(self.tests_frame, text=name, command=partial(self.run_test, test_file, name))
+            relay_test_button.pack(pady=5)
+
+
+    def run_test(self, test_file, name):
+        test_script_path = Path(__file__).parent.parent / 'tests' / test_file
+        self.run_in_new_terminal(name, f'python3 {test_script_path}')
+
+
+    def run_in_new_terminal(self, name, command):
+        cmd = f'xterm -geometry 155x30 -bg black -fg white -fa \'Monospace\' -fs 12 -title "{name}" -e \'{command}\''
+        subprocess.run(cmd, shell=True, check=True)
+    
 
     def save_changes(self):
         for section, entries in self.entries.items():
@@ -73,22 +87,14 @@ class ConfigGUI:
                     value = var.get()  
                 else:
                     continue 
-                
+                    
                 self.config_manager.update_setting(section, setting, str(value))
         messagebox.showinfo("Сохранение", "Настройки сохранены успешно!")
         if self.user_level.get() == "admin":
-            if hasattr(self, 'terminal_window') and self.terminal_window.winfo_exists():
-                original_stdout = sys.stdout 
-                sys.stdout = TextRedirector(self.terminal_output)  
-                try:
-                    # Теперь вызываем функцию main, и ее вывод будет перенаправлен
-                    sys.path.append(str(Path(__file__).parent.parent / 'src'))
-                    from main_feeder import main
-                    main()
-                except Exception as e:
-                    messagebox.showerror("Ошибка", f"Не удалось запустить скрипт: {e}")
-                finally:
-                    sys.stdout = original_stdout 
+            try:
+                self.run_in_terminal()
+            except Exception as e:
+                messagebox.showerror("Ошибка", f"Не удалось запустить скрипт: {e}")
 
         # sudo_password = simpledialog.askstring("Пароль sudo", "Введите пароль sudo:", show='*')
         # if sudo_password is not None:
@@ -111,31 +117,6 @@ class ConfigGUI:
             # yourusername ALL=(ALL) NOPASSWD: /bin/systemctl restart feeder.service
 
 
-    def create_terminal_output_window(self):
-
-        self.terminal_window = tk.Toplevel(self.root)
-        self.terminal_window.title("Вывод терминала")
-
-        self.terminal_output = tk.Text(self.terminal_window, height=20, width=80)
-        self.terminal_output.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
-
-        scrollb = tk.Scrollbar(self.terminal_window, command=self.terminal_output.yview)
-        scrollb.pack(side=tk.RIGHT, fill=tk.Y)
-        self.terminal_output['yscrollcommand'] = scrollb.set
-
-        self.terminal_output.config(state='disabled')
-
-
-    def some_action_requiring_terminal_output(self):
-        self.create_terminal_output_window()
-        log_handler = TextHandler(self.terminal_output)
-        logging.getLogger().addHandler(log_handler)
-        logging.getLogger().setLevel(logging.DEBUG)  # Установите уровень логирования по необходимости
-        try:
-            print("Это сообщение будет показано в окне терминала.")
-        finally:
-            logging.getLogger().removeHandler(log_handler)
-
     def service_exists(self, service_name):
         try:
             subprocess.check_call(['systemctl', 'status', service_name], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -151,6 +132,34 @@ class ConfigGUI:
         if self.service_exists(service_name):
             subprocess.run(['sudo', 'systemctl', 'start', service_name], check=True)
 
+    def find_arduino(self):
+        ports = list(list_ports.comports())
+        for port in ports:
+            try:
+                s = serial.Serial(port.device, 9600, timeout=1)
+                time.sleep(2)
+                s.write(b'\x01')
+                time.sleep(1)
+                response = s.readline().decode().strip()
+                s.close()
+                if response == "Arduino!":
+                    self.config_manager.update_setting("Parameters", "arduino_port", port.device)
+                    messagebox.showinfo("Поиск Arduino", f"Arduino найден на порту: {port.device}")
+                    return
+            except (OSError, serial.SerialException) as e:
+                messagebox.showwarning("Ошибка поиска Arduino: ", e)
+        self.config_manager.update_setting("Parameters", "arduino_port", "Отсутствует")
+        messagebox.showwarning("Поиск Arduino", "Arduino не найден.")
+        
+        
+    def search_rfid_reader(self):
+        rfid_usb = RFIDReader()
+        rfid_usb_port = rfid_usb.find_rfid_reader()
+        if rfid_usb_port:
+            messagebox.showinfo("Поиск RFID-ридера", f"RFID-ридер найден на порту: {rfid_usb_port}")
+        else:
+            messagebox.showwarning("Поиск RFID-ридера", "RFID-ридер не найден.")
+
 
     def draw_gui(self):
         self.notebook = ttk.Notebook(self.root)
@@ -162,6 +171,8 @@ class ConfigGUI:
 
         self.draw_settings_tab()
         self.draw_user_tab()
+        self.draw_tests_tab()
+
 
     def draw_settings_tab(self):
         self.entries = {}
@@ -189,8 +200,18 @@ class ConfigGUI:
             ('Calibration', 'offset'),
             ('Calibration', 'scale'),
         }
+        row_number = 0 
+        self.arduino_find_button = ttk.Button(self.mainframe, text="Найти Arduino", command=self.find_arduino)
+        self.arduino_find_button.grid(row=row_number, column=0, sticky=(tk.W, tk.E), padx=5, pady=5)
+        row_number += 1
 
-        row_number = 0
+        self.rfid_find_button = ttk.Button(self.mainframe, text="Найти RFID-ридер", command=self.search_rfid_reader)
+        self.rfid_find_button.grid(row=row_number, column=0, sticky=(tk.W, tk.E), padx=5, pady=5)
+        row_number += 1
+
+        # Изначально делаем кнопки недоступными
+        self.arduino_find_button.config(state='disabled')
+        self.rfid_find_button.config(state='disabled')
         for section in config.sections():
             self.entries[section] = {}
 
@@ -241,7 +262,6 @@ class ConfigGUI:
             entered_password = simpledialog.askstring("Пароль", "Введите пароль технического специалиста:", show='*')
             if entered_password is not None and self.check_password(entered_password):
                 self.enable_editing()
-                self.some_action_requiring_terminal_output()
             else:
                 messagebox.showwarning("Ошибка", "Неверный пароль!")
                 self.user_level.set("user")
@@ -254,7 +274,11 @@ class ConfigGUI:
             for option, info in options.items():
                 widget = info['widget']
                 if isinstance(widget, ttk.Entry) or isinstance(widget, ttk.Checkbutton):
-                    widget.config(state='normal')  
+                    widget.config(state='normal')
+
+        if self.arduino_find_button and self.rfid_find_button:
+            self.arduino_find_button.config(state='normal')
+            self.rfid_find_button.config(state='normal')
 
 
     def disable_editing(self):
@@ -262,13 +286,16 @@ class ConfigGUI:
             for option, info in options.items():
                 widget = info['widget']
                 if isinstance(widget, ttk.Entry):
-                    widget.config(state='readonly')  
+                    widget.config(state='readonly')
                 elif isinstance(widget, ttk.Checkbutton):
                     widget.config(state='disabled')
+        if self.arduino_find_button and self.rfid_find_button:
+            self.arduino_find_button.config(state='disabled')
+            self.rfid_find_button.config(state='disabled')
 
 
     def check_password(self, entered_password):
-        correct_password = "01" 
+        correct_password = "" 
         return entered_password == correct_password
 
 

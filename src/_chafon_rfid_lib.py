@@ -1,6 +1,8 @@
 import time
 from loguru import logger
 from _config_manager import ConfigManager
+import serial
+from serial.tools import list_ports
 
 from chafon_rfid.base import CommandRunner, ReaderCommand, ReaderInfoFrame, ReaderResponseFrame, ReaderType
 from chafon_rfid.command import (CF_GET_READER_INFO, CF_SET_BUZZER_ENABLED, CF_SET_RF_POWER)
@@ -12,14 +14,47 @@ class RFIDReader:
     def __init__(self):
         self.config_manager = ConfigManager()
         self.reader_port = self.config_manager.get_setting("RFID_Reader", "reader_port")
-        self.reader_power = int(self.config_manager.get_setting("RFID_Reader", "reader_power"))
+        if self.reader_port == "Отсутствует":
+            self.reader_port = None
+        initial_power = int(self.config_manager.get_setting("RFID_Reader", "reader_power"))
+        self.reader_power = self.closest_number(initial_power)
         self.reader_timeout = int(self.config_manager.get_setting("RFID_Reader", "reader_timeout"))
         self.reader_buzzer = int(self.config_manager.get_setting("RFID_Reader", "reader_buzzer"))
-        self.transport = SerialTransport(device=self.reader_port)
-        self.runner = CommandRunner(self.transport)
+
+
+    def closest_number(self, power):
+        numbers = [1, 3, 5, 7, 10, 15, 20, 26]
+        if power < min(numbers):
+            return min(numbers)
+        return min(numbers, key=lambda x: abs(x - power))
+
+
+    def find_rfid_reader(self):
+        ports = list(list_ports.comports())
+        for port in ports:
+            try:
+                transport = SerialTransport(device=port.device)
+                runner = CommandRunner(transport)
+                get_reader_info_cmd = ReaderCommand(CF_GET_READER_INFO)
+                
+                response = runner.run(get_reader_info_cmd)
+                reader_info = ReaderInfoFrame(response)
+                
+                if reader_info.type:  
+                    self.config_manager.update_setting("RFID_Reader", "reader_port", port.device)
+                    return port.device
+                    
+            except (OSError, serial.SerialException, ValueError):
+                pass
+        
+        self.config_manager.update_setting("RFID_Reader", "reader_port", "Отсутствует")
+        return None
+
 
     def _get_reader_type(self):
         get_reader_info = ReaderCommand(CF_GET_READER_INFO)
+        self.transport = SerialTransport(device=self.reader_port)
+        self.runner = CommandRunner(self.transport)
         reader_info = ReaderInfoFrame(self.runner.run(get_reader_info))
         return reader_info.type
 

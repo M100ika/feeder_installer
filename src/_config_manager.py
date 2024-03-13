@@ -15,6 +15,7 @@ class ConfigManager:
             config.add_section("Calibration")
             config.add_section("DbId")
             config.add_section("RFID_Reader")
+            config.add_section("Relay")
 
             config.set("Parameters", "model", "feeder_model_1")    
             config.set("Parameters", "type", "Feeder") 

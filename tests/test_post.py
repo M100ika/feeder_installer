@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import datetime
 import json
+from time import sleep
 
 from requests.exceptions import HTTPError
 import timeit
@@ -8,16 +9,25 @@ import requests
 from loguru import logger 
 import datetime
 
+import sys
+from pathlib import Path
 
-type_scales = "Marat_10_test"
+sys.path.append(str(Path(__file__).parent.parent / 'src'))
 
-logger.add(format="{time} {level} {message}", 
-level="DEBUG", rotation="1 day", compression="zip")  
+from _config_manager import ConfigManager
+
+config_manager = ConfigManager()
+
+
+type_scales = "TEST"
+
+logger.remove()
+logger.add(sys.stderr, format="{time} {level} {message}", level="DEBUG")
 
 def post_request():
     try:
-        feeder_type = "TEST"
-        serial_number = 'TEST-1-test'
+        feeder_type = config_manager.get_setting("Parameters","type")
+        serial_number = config_manager.get_setting("Parameters","serial_number")
         payload = {
             "Eventdatetime": str(str(datetime.datetime.now())),
             "EquipmentType": feeder_type,
@@ -37,6 +47,7 @@ def send_post(postData):
     try:
         post = requests.post(url, data = json.dumps(postData), headers = headers, timeout=30)
         logger.info(f'Status Code {post.status_code}')
+        return post.status_code
     except HTTPError as http_err:
         logger.error(f'HTTP error occurred: {http_err}')
     except Exception as err:
@@ -45,7 +56,16 @@ def send_post(postData):
 @logger.catch
 def main_test():
     try:
-        send_post(post_request())
+        post_msg = post_request()
+        answer = send_post(post_msg)
+        logger.info(f"Ответ от сервера: {answer}")
+        if answer == 200:
+            logger.info(f'Тест успешно завершен.\nПроверьте на сервере, пришло ли следующее сообщение:')
+            logger.info(f'\n\n{json.dumps(post_msg, indent=4)}')
+        else:
+            logger.error(f'Что-то пошло не так.\nПроверьте подключение к интернету.')
+        logger.info(f'Через 10 минут я закроюсь')
+        sleep(600)
     except HTTPError as http_err:
         logger.error(f'HTTP error occurred: {http_err}')
 
