@@ -156,3 +156,48 @@ https://docs.google.com/spreadsheets/d/1XeYxa0_bUGq_OvfEMQHy445ZObuPY38OtOF7z158
 - После считывания метки откройте датчик.
     
 **Примечание:** Важно проводить процедуру калибровки в условиях, исключающих внешние воздействия (например, вибрации или движение), которые могут повлиять на точность измерений.
+
+
+  feeder_installer/
+    │
+    ├── arduino/                  # Все файлы, относящиеся к коду Arduino
+    │   ├── HX711-master.zip      # Библиотека АЦП HX711
+    │   └── SerialCallResponse_RPi/  # Папка проекта для Arduino
+    │       └──SerialCallResponse_RPi.ino   # Проект Arduino
+    │
+    ├── feeder_log                # Журналы проекта
+    │   ├── feeder.log            # Журнал всех сообщений
+    │   └── error_log            
+    │       └── errors.log        # Журнал ошибок
+    │
+    ├── submodule
+    |   ├── src/                      # Исходный код Python проекта
+    │      ├── _adc_data.py          # Модуль для работы с АЦП
+    │      ├── _config_manager.py    # Модуль конфигурационных настроек
+    │      ├── _feeder_module.py     # Модуль функций кормушки
+    │      ├── _headers.py           # Заголовки, общие константы
+    │      ├── main_feeder.py        # Основной исполняемый скрипт
+    │      └── _sql_database.py      # Взаимодействие с базой данных
+    │      └── _chafon_rfid_lib.py   # Модуль считывателя chafon CF-MU904
+    │   
+    |    ├── tests/                    # Тесты проекта
+    │      ├── relay_test.py         # Тест датчика прерывания луча
+    │      ├── rfid_ethernet_test.py # Тест модуля считывания rfid меток
+    │      ├── rfid_usb_test_2.py    # Тест модуля считывания rfid меток USB
+    │      ├── test_post.py          # Тест связи с сервером
+    │      ├── weight_measure_test   # Тест датчика веса
+    │
+    ├── config/                   # Конфигурационные файлы
+    │   ├── config.ini            # Настройки проекта
+    │   └── feeder.service        # Файл сервиса для systemd
+    |
+    ├── docs/                     # Документация
+    │   └── feeder_doc/           # Папка документации кормушки
+    │        └── feeder_main.puml # Алгоритм главного файла кормушки  
+    │   └── rfid_read/            # Папка документации считывателя
+    │        └── rfid_read.puml   # Алгоритм главного файла кормушки  
+    │
+    ├── scripts/                  # Дополнительные скрипты
+    │   └── install.sh            # Скрипт установки
+    │
+    └── README.md                 # Краткое описание проекта
