@@ -47,11 +47,11 @@
     │   └── _chafon_rfid_lib.py   # Модуль считывателя chafon CF-MU904
     │
     ├── tests/                    # Тесты проекта
-    │   ├── relay.py              # Тест датчика прерывания луча
-    │   ├── rfid_reader_test.py   # Тест модуля считывания rfid меток
+    │   ├── relay_test.py         # Тест датчика прерывания луча
+    │   ├── rfid_ethernet_test.py # Тест модуля считывания rfid меток
+    │   ├── rfid_usb_test_2.py    # Тест модуля считывания rfid меток USB
     │   ├── test_post.py          # Тест связи с сервером
-    │   ├── measure_test          # Папка теста датчика веса
-    │       └──...
+    │   ├── weight_measure_test   # Тест датчика веса
     │
     ├── config/                   # Конфигурационные файлы
     │   ├── config.ini            # Настройки проекта
