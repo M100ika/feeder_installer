@@ -1,0 +1,6 @@
+[submodule "submod_src/src_and_tests"]
+	path = submod_src/src_and_tests
+	url = https://github.com/M100ika/feeder_installer_submodule_src.git
+[submodule "submod"]
+	path = submod
+	url = https://github.com/M100ika/feeder_installer_submodule_src.git
