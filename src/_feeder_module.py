@@ -111,8 +111,9 @@ def __send_post(postData):
             raise Exception(f'Response status code: {post.status_code}')
     except Exception as err:
         logger.error(f'Error occurred: {err}')
-        database = SqlDatabase()
-        database.no_internet(postData)
+        if SQL_ON:
+            database = SqlDatabase()
+            database.no_internet(postData)
 
 
 def _set_power_RFID_ethernet():

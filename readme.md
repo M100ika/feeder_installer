@@ -85,7 +85,8 @@ https://docs.google.com/spreadsheets/d/1XeYxa0_bUGq_OvfEMQHy445ZObuPY38OtOF7z158
     median_url = http://194.4.56.86:8501/api/weights
     array_url = https://smart-farm.kz:8502/v2/OneTimeWeighings
     arduino_port = /dev/ttyACM0 # Порт ардуино. Проверить с помощью команды ls /dev/tty* . Варианты: ttyACM0, ttyUSB0 или ttyUSB1
-    debug = 1  # Ставим 0 после проведения тестов. 0 - отключает логи кроме error. 
+    debug = 1  # Ставим 1 при тестировании. 0 - отключает сообщения в терминале кроме error. 
+    database = 0 # Ставим 1 для включения функции сохранения данных при отключенном интернете
 
     [Calibration]
     taring_rfid =   # RFID метка для автоматического тарирования. Изменить на нужный

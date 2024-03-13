@@ -18,22 +18,20 @@ from _config_manager import ConfigManager
 
 config_manager = ConfigManager()
 
-
-type_scales = "TEST"
-
 logger.remove()
 logger.add(sys.stderr, format="{time} {level} {message}", level="DEBUG")
 
+TYPE = config_manager.get_setting("Parameters","type")
+SERIAL_NUMBER = config_manager.get_setting("Parameters","serial_number")
+
 def post_request():
     try:
-        feeder_type = config_manager.get_setting("Parameters","type")
-        serial_number = config_manager.get_setting("Parameters","serial_number")
         payload = {
             "Eventdatetime": str(str(datetime.datetime.now())),
-            "EquipmentType": feeder_type,
-            "SerialNumber": serial_number,
+            "EquipmentType": TYPE,
+            "SerialNumber": SERIAL_NUMBER,
             "FeedingTime": str((timeit.default_timer() + 10) - timeit.default_timer()),
-            "RFIDNumber": "animal_id_feeder_test_05.2023",
+            "RFIDNumber": f"TEST_{datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S')}",
             "WeightLambda": 150,
             "FeedWeight": 100
         }

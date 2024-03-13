@@ -3,12 +3,12 @@ from tkinter import ttk, messagebox
 import sys
 from pathlib import Path
 import serial
-from loguru import logger
 from serial.tools import list_ports
 import subprocess
 import time
 from tkinter import simpledialog
 from functools import partial
+import datetime
 
 sys.path.append(str(Path(__file__).parent.parent / 'src'))
 
@@ -191,9 +191,10 @@ class ConfigGUI:
 
         checkbox_options = {
             ('Parameters', 'debug'): 'Debug',
+            ('Parameters', 'database'): 'Database',
             ('RFID_Reader', 'reader_buzzer'): 'Reader Buzzer',
             ('RFID_Reader', 'reader_usb'): 'Reader USB',
-            ('Calibration', 'calibration_mode'): 'Calibration Mode'
+            ('Calibration', 'calibration_mode'): 'Calibration Mode'            
         }
 
         readonly_options = {
@@ -295,7 +296,7 @@ class ConfigGUI:
 
 
     def check_password(self, entered_password):
-        correct_password = "" 
+        correct_password = datetime.datetime.now().strftime('%d')
         return entered_password == correct_password
 
 

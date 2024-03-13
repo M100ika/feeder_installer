@@ -4,6 +4,8 @@ config_manager = ConfigManager()
 
 DEBUG = int(config_manager.get_setting("Parameters", "debug"))
 
+SQL_ON = int(config_manager.get_setting("Parameters", "database"))
+
 EQUIPMENT_TYPE = config_manager.get_setting("Parameters", "type")
 SERIAL_NUMBER = config_manager.get_setting("Parameters", "serial_number")
 
