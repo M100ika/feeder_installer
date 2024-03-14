@@ -33,9 +33,9 @@
 <pre>
   feeder-installer/  
     │  
-    ├── arduino/                  # Все файлы, относящиеся к коду Arduino  
-    │   ├── HX711-master.zip      # Библиотека АЦП HX711  
-    │   └── SerialCallResponse_RPi/  # Папка проекта для Arduino  
+    ├── arduino/                            # Все файлы, относящиеся к коду Arduino  
+    │   ├── HX711-master.zip                # Библиотека АЦП HX711  
+    │   └── SerialCallResponse_RPi/         # Папка проекта для Arduino  
     │       └──SerialCallResponse_RPi.ino   # Проект Arduino  
     │  
     ├── feeder_log                # Журналы проекта  
@@ -53,13 +53,13 @@
     │      ├── main_feeder.py        # Основной исполняемый скрипт  
     │      ├── _sql_database.py      # Взаимодействие с базой данных  
     │      └── _chafon_rfid_lib.py   # Модуль считывателя chafon CF-MU904  
-    |   └── tests/                  # Тесты проекта  
+    |   └── tests/                   # Тесты проекта  
     │      ├── relay_test.py         # Тест датчика прерывания луча  
     │      ├── rfid_ethernet_test.py # Тест модуля считывания rfid меток  
     │      ├── rfid_usb_test_2.py    # Тест модуля считывания rfid меток USB  
     │      ├── test_post.py          # Тест связи с сервером  
     │      └── weight_measure_test   # Тест датчика веса  
-    |   └── scripts/                # Дополнительненые скрипты  
+    |   └── scripts/                 # Дополнительненые скрипты  
     |         └── gui/               # Файлы графического интерфейса пользователя  
     |           └── config_guy.py    # Графический интерфейс  
     |   └── README.md  
