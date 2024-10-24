@@ -1,0 +1,10 @@
+certifi==2024.2.2
+charset-normalizer==3.3.2
+idna==3.6
+loguru==0.7.2
+numpy==1.26.3
+pyserial==3.5
+requests==2.31.0
+RPi.GPIO==0.7.1
+urllib3==2.2.0
+wabson.chafon-rfid==0.1.0
