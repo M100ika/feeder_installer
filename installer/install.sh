@@ -28,6 +28,11 @@ sudo curl -o /etc/feeder/config.ini https://raw.githubusercontent.com/M100ika/fe
 sudo curl -o /etc/systemd/system/feeder.service https://raw.githubusercontent.com/M100ika/feeder_installer/main/config/feeder.service
 sudo systemctl daemon-reload
 # Стартовать сервис пока не требуется
+# sudo chown -R pi:pi /home/pi/feeder_v71
+# sudo systemctl daemon-reload
+# sudo systemctl enable feeder.service
+# sudo systemctl start feeder.service
+# sudo systemctl stop feeder.service
 
 # Клонирование и установка программы
 sudo mkdir -p /opt/feeder_project
